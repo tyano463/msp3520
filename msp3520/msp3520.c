@@ -1,7 +1,9 @@
 #include <Python.h>
+#include <stdio.h>
 
 static PyObject* display_init(PyObject* self, PyObject* args) {
     // 初期化処理をここに記述
+    fprintf(stderr, "initialized\n");
     Py_RETURN_NONE;
 }
 
@@ -13,6 +15,7 @@ static PyObject* display_show(PyObject* self, PyObject* args) {
         return NULL;
     }
 
+    fprintf(stderr, "show %s (%d, %d)\n", text, x, y);
     // テキスト表示の処理をここに記述
     Py_RETURN_NONE;
 }

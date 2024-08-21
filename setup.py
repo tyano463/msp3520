@@ -2,7 +2,7 @@ from setuptools import setup, Extension
 
 module = Extension(
     'msp3520',  # モジュール名を msp3520 に変更
-    sources=['msp3520/display.c'],
+    sources=['msp3520/msp3520.c'],
     extra_compile_args=['-O3'],  # 最適化オプション
 )
 
