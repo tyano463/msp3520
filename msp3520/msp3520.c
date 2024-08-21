@@ -28,13 +28,13 @@ static PyMethodDef DisplayMethods[] = {
 
 static struct PyModuleDef displaymodule = {
     PyModuleDef_HEAD_INIT,
-    "msp3520",  // モジュール名を msp3520 に変更
+    "_msp3520",  // モジュール名を msp3520 に変更
     NULL,
     -1,
     DisplayMethods
 };
 
-PyMODINIT_FUNC PyInit_msp3520(void) {
+PyMODINIT_FUNC PyInit__msp3520(void) {
     return PyModule_Create(&displaymodule);
 }
 
