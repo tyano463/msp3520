@@ -180,12 +180,15 @@ class MSP3520(Singleton):
         self.write_data((color >> 3) & 0xfc)
         self.write_data((color & 0x1f) << 3)
 
-    def show(self, _text, x, y, size=DEFAULT_FONT_SIZE, color=0):
+    def show(self, _text, x, y, size=-1, color=0):
         if not isinstance(_text, str):
             return
 
         if (not self.range_x(x)) or (not self.range_y(y)):
             return
+
+        if size == -1:
+            size = self.font_size
 
         lh = size + int(size / 2)
         if (not self.range_x(x + lh)) or (not self.range_y(y + lh)):
@@ -226,7 +229,7 @@ class MSP3520(Singleton):
 
         self.window(0, 0, D.WIDTH, D.HEIGHT)
 
-    def show_line(self, _text, size=DEFAULT_FONT_SIZE, color=0xffffffff):
+    def show_line(self, _text, size=-1, color=0xffffffff):
         """
         add line
         if exceed max line, scroll
@@ -239,6 +242,9 @@ class MSP3520(Singleton):
             return
         if color == 0xffffffff:
             color = Color.BLACK
+
+        if size == -1:
+            size = self.font_size
 
         lh = size + int(size / 2)
         max_line = int(D.HEIGHT / lh)
