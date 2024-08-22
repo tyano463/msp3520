@@ -12,7 +12,7 @@ on the MSP3520 display connected to a raspi.
 ## Installation
 
 ```bash
-git clone git@github.com:tyano463/msp3520.git
+git clone https://github.com/tyano463/msp3520.git
 cd msp3520
 sudo python3 setup.py develop
 ```
